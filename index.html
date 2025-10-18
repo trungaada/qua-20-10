@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Quà 20/10 cho Em 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    /* Nền gradient pastel nhẹ nhàng */
+    background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    color: #ff1493;
+    padding-top: 15vh;
+    min-height: 100vh;
+    position: relative; /* Thêm position relative để floating icon hoạt động */
+    overflow: hidden; /* Tránh thanh cuộn khi icon trôi ra ngoài */
+  }
+  h1 {
+    font-size: 3em;
+    animation: glow 1.5s infinite alternate, sparkle 0.5s infinite alternate; 
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 20px;
+    color: #e91e63;
+  }
+  
+  /* CẬP NHẬT: Hiệu ứng phát sáng sâu hơn */
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493; }
+    to { text-shadow: 0 0 25px #ff1493, 0 0 35px #ff69b4; } 
+  }
+
+  /* KEYFRAMES MỚI: Hiệu ứng lung linh nhẹ */
+  @keyframes sparkle {
+    0% { opacity: 1; }
+    50% { opacity: 0.95; }
+    100% { opacity: 1; }
+  }
+
+  p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+  }
+  button {
+    background-color: #ff69b4;
+    border: none;
+    color: white;
+    padding: 18px 40px;
+    border-radius: 30px;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    font-weight: 600;
+    z-index: 5; /* Đảm bảo nút nằm trên icon */
+    position: relative;
+  }
+  button:hover {
+    transform: scale(1.05);
+    background-color: #ff1493;
+  }
+
+  /* CSS cho dòng chữ gợi ý */
+  .click-hint {
+    font-size: 1em;
+    color: #e91e63; 
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+    margin-top: 15px;
+    font-style: italic;
+    font-weight: 700;
+    animation: bounce 1s infinite alternate, pulseText 1.5s infinite ease-in-out;
+    z-index: 5;
+    position: relative;
+  }
+
+  /* Keyframes cho hiệu ứng nhún nhảy (giữ nguyên) */
+  @keyframes bounce {
+    from { transform: translateY(0); opacity: 0.8; }
+    to { transform: translateY(-5px); opacity: 1; }
+  }
+
+  /* Hiệu ứng tăng giảm kích thước nhẹ (giữ nguyên) */
+  @keyframes pulseText {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); } 
+    100% { transform: scale(1); }
+  }
+
+  /* CSS MỚI: Hiệu ứng icon nổi lên */
+  .floating-icon {
+      position: absolute;
+      bottom: -50px; /* Bắt đầu từ dưới màn hình */
+      color: rgba(255, 105, 180, 0.6); /* Màu hồng nhạt, bán trong suốt */
+      font-size: 1.5em;
+      pointer-events: none; /* Không ngăn cản click vào nút */
+      animation: floatUp linear infinite;
+      text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+      z-index: 0; /* Đảm bảo icon nằm dưới nội dung chính */
+  }
+
+  /* Keyframes MỚI: Animation icon trôi lên */
+  @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* RESPONSIVE: Điều chỉnh cho màn hình điện thoại (<= 600px) */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2.2em;
+    }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+    }
+    .click-hint {
+      font-size: 0.9em;
+    }
+  }
+</style>
+</head>
+<body>
+  <h1>💐 Chúc mỹ Nữ 20/10 thật hạnh phúc 💐</h1>
+  <p>Món quà nhỏ bé chứa đựng cả tấm lòng. Hãy nhấn nút bên dưới để nhận nhé 💌</p>
+  
+  <div>
+    <button onclick="nhanQua()">Nhận quà 💞</button>
+    <p class="click-hint">hãy bấm vào đây ✨</p> 
+  </div>
+
+  <script>
+    function nhanQua() {
+      window.location.href = "love.html"; // Chuyển sang trang quà
+    }
+
+    const body = document.body;
+    const totalIcons = 25; // THAY ĐỔI: Tăng số lượng icon ban đầu lên 25
+    // THAY ĐỔI: Thêm nhiều icon dễ thương hơn
+    const cuteIcons = ['💖', '✨', '💕', '💌', '🌸', '💫', '❤️', '🌟', '🎀', '💞', '🌷', '💝'];
+
+    function createFloatingIcon() {
+        const iconElement = document.createElement('div');
+        iconElement.classList.add('floating-icon');
+        
+        const icon = cuteIcons[Math.floor(Math.random() * cuteIcons.length)];
+        iconElement.innerHTML = icon; 
+
+        const size = Math.random() * 1.5 + 0.8; 
+        iconElement.style.left = `${Math.random() * 100}vw`;
+        iconElement.style.fontSize = `${size}em`;
+        
+        const duration = Math.random() * 15 + 10; // Tốc độ trôi chậm (10s đến 25s)
+        iconElement.style.animationDuration = `${duration}s`; 
+        iconElement.style.animationDelay = `-${Math.random() * 15}s`; // Bắt đầu ngẫu nhiên
+
+        body.appendChild(iconElement);
+
+        // Xóa icon sau khi trôi ra ngoài để tối ưu hiệu năng
+        setTimeout(() => {
+            iconElement.remove();
+        }, duration * 1000);
+    }
+
+    // Tạo ra icon ban đầu
+    for (let i = 0; i < totalIcons; i++) {
+        createFloatingIcon();
+    }
+
+    // Định kỳ tạo icon mới
+    setInterval(createFloatingIcon, 1000); // THAY ĐỔI: Tăng tần suất lên 1 icon mỗi giây
+  </script>
+</body>
+</html>
