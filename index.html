@@ -6,31 +6,39 @@
 <title>Quà 20/10 cho Em 💖</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 <style>
+  /* THÊM RESET: Cực kỳ quan trọng để đảm bảo căn giữa đúng trên di động */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Giúp padding/border không làm tăng kích thước phần tử */
+  }
+
   body {
     background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
     font-family: 'Quicksand', sans-serif;
     color: #ff1493;
+    /* Đảm bảo body chiếm toàn bộ viewport */
     min-height: 100vh;
+    width: 100vw; 
     position: relative;
     overflow: hidden; 
     
-    /* ***** CĂN CHÍNH GIỮA MÀN HÌNH BẰNG FLEXBOX (PC & MOBILE) ***** */
+    /* ***** CĂN CHÍNH GIỮA MÀN HÌNH BẰNG FLEXBOX (HOẠT ĐỘNG TỐT TRÊN ADR/PC) ***** */
     display: flex;
     justify-content: center; /* Căn giữa theo chiều ngang */
     align-items: center; /* Căn giữa theo chiều dọc */
     flex-direction: column; 
-    padding: 0; /* Loại bỏ padding tổng thể, chỉ dùng padding trong content */
-    /* ******************************************************************* */
+    /* ***************************************************************************** */
   }
 
   .main-content {
       max-width: 90%; 
-      width: 450px; /* Chiều rộng tối ưu trên PC/Tablet */
+      width: 450px; 
       margin: 0; 
       position: relative;
       z-index: 5;
       text-align: center; 
-      padding: 20px; /* Thêm padding an toàn cho nội dung bên trong */
+      padding: 20px; /* Thêm padding cho nội dung */
   }
 
   h1 {
@@ -111,12 +119,12 @@
       100% { transform: translate(0, -120vh) rotate(360deg); opacity: 0; }
   }
 
-  /* RESPONSIVE cho điện thoại */
+  /* RESPONSIVE cho điện thoại (Android) */
   @media (max-width: 600px) {
     .main-content {
       width: 100%; 
       max-width: 100%;
-      padding: 20px 15px; /* Thêm padding ngang 15px để nội dung không dính sát mép màn hình */
+      padding: 20px 15px; 
     }
     h1 {
       font-size: 2.2em;
