@@ -14,25 +14,23 @@
     position: relative;
     overflow: hidden; 
     
-    /* CẬP NHẬT LỚN: SỬ DỤNG FLEXBOX ĐỂ CĂN CHÍNH GIỮA (Ngang & Dọc) */
+    /* ***** CĂN CHÍNH GIỮA MÀN HÌNH BẰNG FLEXBOX (PC & MOBILE) ***** */
     display: flex;
     justify-content: center; /* Căn giữa theo chiều ngang */
     align-items: center; /* Căn giữa theo chiều dọc */
-    flex-direction: column; /* Đảm bảo các thành phần xếp chồng lên nhau */
-    padding: 20px; /* Thêm padding an toàn */
+    flex-direction: column; 
+    padding: 0; /* Loại bỏ padding tổng thể, chỉ dùng padding trong content */
+    /* ******************************************************************* */
   }
-
-  /* Loại bỏ padding-top: 15vh vì đã dùng Flexbox căn giữa */
-  /* Loại bỏ text-align: center trong body vì đã căn ngang bằng Flexbox, 
-     nhưng thêm text-align vào main-content để căn chữ bên trong */
 
   .main-content {
       max-width: 90%; 
-      width: 450px; /* Thêm width cố định để dễ quản lý trên desktop */
-      margin: 0; /* Loại bỏ margin auto vì Flexbox đã làm việc căn giữa */
+      width: 450px; /* Chiều rộng tối ưu trên PC/Tablet */
+      margin: 0; 
       position: relative;
       z-index: 5;
-      text-align: center; /* Căn chữ bên trong container */
+      text-align: center; 
+      padding: 20px; /* Thêm padding an toàn cho nội dung bên trong */
   }
 
   h1 {
@@ -113,10 +111,12 @@
       100% { transform: translate(0, -120vh) rotate(360deg); opacity: 0; }
   }
 
-  /* RESPONSIVE */
+  /* RESPONSIVE cho điện thoại */
   @media (max-width: 600px) {
     .main-content {
-      width: 100%; /* Cho phép chiếm toàn bộ chiều rộng trên di động */
+      width: 100%; 
+      max-width: 100%;
+      padding: 20px 15px; /* Thêm padding ngang 15px để nội dung không dính sát mép màn hình */
     }
     h1 {
       font-size: 2.2em;
