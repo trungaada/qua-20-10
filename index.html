@@ -9,20 +9,30 @@
   body {
     background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
     font-family: 'Quicksand', sans-serif;
-    text-align: center;
     color: #ff1493;
-    padding-top: 15vh;
     min-height: 100vh;
     position: relative;
     overflow: hidden; 
+    
+    /* CẬP NHẬT LỚN: SỬ DỤNG FLEXBOX ĐỂ CĂN CHÍNH GIỮA (Ngang & Dọc) */
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    flex-direction: column; /* Đảm bảo các thành phần xếp chồng lên nhau */
+    padding: 20px; /* Thêm padding an toàn */
   }
 
-  /* CSS MỚI: Container để căn giữa nội dung chính */
+  /* Loại bỏ padding-top: 15vh vì đã dùng Flexbox căn giữa */
+  /* Loại bỏ text-align: center trong body vì đã căn ngang bằng Flexbox, 
+     nhưng thêm text-align vào main-content để căn chữ bên trong */
+
   .main-content {
-      max-width: 90%; /* Giới hạn chiều rộng nội dung */
-      margin: 0 auto; /* Căn giữa theo chiều ngang */
-      position: relative; /* Đảm bảo nội dung nằm trên icon */
+      max-width: 90%; 
+      width: 450px; /* Thêm width cố định để dễ quản lý trên desktop */
+      margin: 0; /* Loại bỏ margin auto vì Flexbox đã làm việc căn giữa */
+      position: relative;
       z-index: 5;
+      text-align: center; /* Căn chữ bên trong container */
   }
 
   h1 {
@@ -31,7 +41,6 @@
     font-family: 'Dancing Script', cursive;
     margin-bottom: 20px;
     color: #e91e63;
-    /* Dòng chữ đã được căn giữa vì 'text-align: center' trong body */
   }
   
   @keyframes glow {
@@ -42,7 +51,6 @@
   p {
     font-size: 1.3em;
     margin-bottom: 30px;
-    /* Dòng chữ đã được căn giữa vì 'text-align: center' trong body */
   }
   button {
     background-color: #ff69b4;
@@ -86,7 +94,6 @@
     100% { transform: scale(1); }
   }
 
-  /* CSS cho icon nổi lên */
   .floating-icon {
       position: absolute;
       bottom: -50px; 
@@ -108,6 +115,9 @@
 
   /* RESPONSIVE */
   @media (max-width: 600px) {
+    .main-content {
+      width: 100%; /* Cho phép chiếm toàn bộ chiều rộng trên di động */
+    }
     h1 {
       font-size: 2.2em;
     }
@@ -143,7 +153,7 @@
     }
 
     const body = document.body;
-    const totalIcons = 15; // Đã tối ưu hóa
+    const totalIcons = 15; 
     const cuteIcons = ['💖', '✨', '💕', '💌', '🌸', '💫', '❤️', '🌟', '🎀', '💞', '🌷', '💝'];
 
     function createFloatingIcon() {
@@ -168,12 +178,10 @@
         }, duration * 1000);
     }
 
-    // Tạo ra icon ban đầu
     for (let i = 0; i < totalIcons; i++) {
         createFloatingIcon();
     }
 
-    // Định kỳ tạo icon mới (Đã tối ưu hóa: 2s)
     setInterval(createFloatingIcon, 2000); 
   </script>
 </body>
