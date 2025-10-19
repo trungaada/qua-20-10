@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Lời Chúc Đặc Biệt</title>
-<style>
-  /* Hiệu ứng NỀN CHUYỂN MÀU MỚI */
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <style>
+  /* Hiệu ứng NỀN CHUYỂN MÀU */
   @keyframes gradient-animation {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -29,22 +29,24 @@
   h2 {
     color: #c2185b; /* Màu hồng đậm hơn */
     margin-bottom: 30px;
-    font-size: 2.2em; /* Lớn hơn */
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.15); /* Bóng đổ rõ hơn */
+    font-size: 2.5em; /* TĂNG CỠ CHỮ TIÊU ĐỀ */
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.15); 
     z-index: 1;
+    text-align: center; /* Đảm bảo tiêu đề không bị tràn */
+    padding: 0 10px;
   }
   .message {
     margin-top: 40px;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.95); /* Thêm độ trong suốt nhẹ */
-    border: 4px solid #f48fb1; /* Viền màu hồng pastel */
-    border-radius: 18px; /* Bo góc mềm mại hơn */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Bóng đổ ấn tượng hơn */
-    max-width: 85%;
+    background-color: rgba(255, 255, 255, 0.98); /* Độ trong suốt rất ít */
+    border: 4px solid #f48fb1; 
+    border-radius: 18px; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); 
+    max-width: 90%; /* Tăng max-width để tận dụng không gian màn hình nhỏ hơn */
     text-align: center;
     color: #333;
     line-height: 1.8;
-    font-size: 1.15em;
+    font-size: 1.3em; /* TĂNG CỠ CHỮ PHẦN NỘI DUNG */
     animation: fadeIn 1s ease-out;
     position: relative;
     z-index: 1;
@@ -57,28 +59,30 @@
     margin: 0;
   }
   .message .signature {
-    margin-top: 20px;
+    margin-top: 25px; /* Tăng khoảng cách chữ ký */
     font-weight: 700;
     color: #e91e63;
     font-style: italic;
-    font-size: 1.2em;
+    font-size: 1.3em; /* TĂNG CỠ CHỮ CHỮ KÝ */
   }
   .back {
-    margin-top: 25px;
+    margin-top: 30px; /* Tăng khoảng cách với nút Quay lại */
     text-decoration: none;
     color: #e91e63;
-    border: 1px solid #e91e63;
-    padding: 8px 15px;
-    border-radius: 5px;
+    border: 2px solid #e91e63; /* Viền dày hơn dễ nhấn hơn */
+    padding: 10px 20px;
+    border-radius: 8px; /* Bo góc mềm mại */
     transition: background-color 0.3s, color 0.3s;
     position: relative;
     z-index: 1;
+    font-size: 1.1em; /* TĂNG CỠ CHỮ NÚT */
   }
   .back:hover {
     background-color: #e91e63;
     color: white;
   }
 
+  /* Hiệu ứng nền (confetti, heart, blossom, sparkle) vẫn giữ nguyên */
   /* Confetti Styling */
   .confetti {
     position: fixed;
@@ -110,7 +114,7 @@
   }
   .heart {
     position: absolute;
-    font-size: 2em;
+    font-size: 2.5em; /* TĂNG CỠ ICON TRÁI TIM */
     color: #e91e63;
     animation: flyUp 5s linear infinite;
     opacity: 0;
@@ -181,7 +185,7 @@
     }
   }
 
-  /* Hiệu ứng Lấp Lánh (Sparkle) MỚI */
+  /* Hiệu ứng Lấp Lánh (Sparkle) */
   .sparkle {
       position: fixed;
       top: 0;
@@ -193,11 +197,11 @@
   }
   .star {
       position: absolute;
-      width: 5px;
-      height: 5px;
+      width: 7px; /* Tăng kích thước lấp lánh */
+      height: 7px;
       background-color: white;
       border-radius: 50%;
-      box-shadow: 0 0 5px #ffeb3b, 0 0 10px #ffeb3b; /* Ánh sáng vàng */
+      box-shadow: 0 0 5px #ffeb3b, 0 0 12px #ffeb3b; /* Tăng cường ánh sáng */
       opacity: 0;
       animation: twinkle 4s linear infinite;
   }
@@ -205,13 +209,33 @@
       0%, 100% { opacity: 0; transform: scale(0.5); }
       50% { opacity: 1; transform: scale(1.5); }
   }
+
+  /* Điều chỉnh cho màn hình nhỏ hơn (Dưới 600px) */
+  @media (max-width: 600px) {
+    h2 {
+      font-size: 2em; /* Tiêu đề vừa phải hơn */
+    }
+    .message {
+      font-size: 1.15em; /* Nội dung chính 1.15em */
+      padding: 20px;
+    }
+    .message .signature {
+      font-size: 1.2em; /* Chữ ký 1.2em */
+    }
+    .heart {
+        font-size: 2em; /* Trái tim nhỏ lại chút */
+    }
+  }
+
 </style>
 </head>
 <body>
 
 <div class="heart-container" id="heart-container"></div>
 <div class="cherry-blossom-container" id="cherry-blossom-container"></div>
-<div class="sparkle" id="sparkle-container"></div> <h2>Món quà tinh thần gửi Chị yêu ❤️</h2>
+<div class="sparkle" id="sparkle-container"></div> 
+
+<h2>Món quà tinh thần gửi Chị yêu ❤️</h2>
 <div class="message" id="message" style="display:block">
   <p>
     **🌸💌 Gửi đến chị gái yêu quý của em! 💌🌸**
@@ -231,9 +255,8 @@
   <p style="margin-top: 15px; font-weight: 600;">
     Em cầu chúc mọi ước nguyện của chị đều thành hiện thực, bởi chị xứng đáng với những điều tốt đẹp nhất!
   </p>
-  <p class="signature">— Em của chị 💕 — </p>
+  <p class="signature">— Em của chị (Người luôn yêu chị) 💕</p>
 </div>
-
 
 
 <div class="confetti" id="confetti"></div>
@@ -294,10 +317,10 @@ function makeCherryBlossoms() {
   }, 200);
 }
 
-// Tạo hiệu ứng Lấp Lánh (Sparkle) MỚI
+// Tạo hiệu ứng Lấp Lánh (Sparkle)
 function makeSparkles() {
     const container = document.getElementById('sparkle-container');
-    for (let i = 0; i < 40; i++) { // Tạo 40 ngôi sao
+    for (let i = 0; i < 40; i++) { 
         const star = document.createElement('div');
         star.className = 'star';
         star.style.left = Math.random() * 100 + '%';
@@ -319,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Bắt đầu các hiệu ứng lặp
     makeHearts();
     makeCherryBlossoms();
-    makeSparkles(); // Khởi tạo hiệu ứng lấp lánh
+    makeSparkles(); 
 });
 </script>
 </body>
